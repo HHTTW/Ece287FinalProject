@@ -31,7 +31,7 @@ reg [3:0]rNum2;
  reg LastDone;
  
   
-always @ ( posedge CLK ) 
+	always @ ( posedge CLK ) //detect pulse on rising or falling edge
  begin
 	if(RSTn==0) begin
 		rX1 <= 'd74; 
