@@ -3,8 +3,8 @@ input clk,ps_clk,ps_data;
 output [7:0] dataout;
 output Done;
 
-reg [3:0] num;
-reg [10:0] data_buffer;
+reg [3:0] num; //PS_CLK clock counter
+	reg [10:0] data_buffer; //receive data buffer
 reg [7:0] data_reg1,data_reg2,data_reg3,result;
 reg isDone;
 reg LastPs2_CLK;
@@ -52,12 +52,12 @@ always @(posedge clk)
 	
  end 
  
-/*************************************/
+/**************Reading data from the falling edge***********************/
 always @(negedge ps_clk)
    begin
      data_buffer[num]<=ps_data;
   end
-/****************************/
+/**********Judge whether buttons released******************/
 always @(posedge ps_clk)
   begin 
 
